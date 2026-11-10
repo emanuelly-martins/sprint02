@@ -111,3 +111,12 @@ app.get("/mensagens-async", async (req, res) => {
     }
 });
 
+app.get("/mensagens-erro", async (req, res) => {
+  try {
+    res.json(await consultar(true));
+  } catch (erro) {
+    res.status(500).json({
+      erro: "Falha simulada"
+    });
+  }
+});
