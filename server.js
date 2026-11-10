@@ -100,3 +100,14 @@ app.get("/mensagens-then", (req, res) => {
   .then(lista => res.json(lista))
   .catch(() => res.status(500).json({ erro: "Falha na consulta" }));
 });
+
+app.get("/mensagens-async", async (req, res) => {
+    try {
+    res.json(await consultar());
+    } catch (erro) {
+    res.status(500).json({
+    erro:"Falha na consulta"
+    });
+    }
+});
+
