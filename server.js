@@ -94,3 +94,9 @@ function consultar(falhar = false) {
     }, 1000);
   });
 }
+
+app.get("/mensagens-then", (req, res) => {
+  consultar ()
+  .then(lista => res.json(lista))
+  .catch(() => res.status(500).json({ erro: "Falha na consulta" }));
+});
