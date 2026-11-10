@@ -85,3 +85,12 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor em http://localhost:${PORT}`);
 });
 
+function consultar(falhar = false) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      falhar
+      ? reject ( new Error('Falhou'))
+      : resolve(mensagens);
+    }, 1000);
+  });
+}
